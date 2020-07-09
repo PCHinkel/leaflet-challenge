@@ -18,34 +18,41 @@ accessToken: API_KEY
 
 function chooseColor(magnitude) {
     var mag = "0"
+    var colors = ['#ffffe0', '#ffe3af', '#ffc58a', '#ffa474', '#fa8366', '#ed635c', '#db4551', '#c52840', '#aa0e27', '#8b0000']
     if (magnitude) {
         mag = magnitude.toString().substring(0,1).toString()
     } else {
         mag = "11"
     }
-    switch (mag) {
-    case mag == '0':
-      return "#3388ff";
-    case mag == '1':
-      return "#3388ff";
-    case mag == '2':
-      return "#3388ff";
-    case mag == '3':
-      return "#3388ff";
-    case mag == '4':
-      return "#3388ff";
-    case mag == '5':
-      return "gray";
-    case mag == '6':
-      return "darkgreen";
-    case mag == '7':
-      return "pink";
-    case mag == '8':
-      return "brown";
-    case mag == '9':
-      return "slateblue";
-    default:
-      return "white";
+    if (mag == '0') {
+      return colors[0];
+    }
+    if (mag == '1') {
+        return colors[1];
+    }
+    if (mag == '2') {
+        return colors[2];
+    }
+    if (mag == '3') {
+        return colors[3];
+    }
+    if (mag == '4') {
+        return colors[4];
+    }
+    if (mag == '5') {
+        return colors[5];
+    }
+    if (mag == '6') {
+        return colors[6];
+    }
+    if (mag == '7') {
+        return colors[7];
+    }
+    if (mag == '8') {
+        return colors[8];
+    }
+    if (mag == '9') {
+        return colors[9];
     }
 }
 
@@ -74,7 +81,7 @@ function createFeatures(earthquakeData) {
     legend.onAdd = function() {
       var div = L.DomUtil.create("div", "info legend");
       var limits = ["0-1","1-2","2-3","3-4","4-5","5-6","6-7","7-8","8-9","9-10"];
-      var colors = ["gold", "blue", "green", "yellow", "orange", "grey", "darkgreen", "pink", "brown", "slateblue"];
+      var colors = ['#ffffe0', '#ffe3af', '#ffc58a', '#ffa474', '#fa8366', '#ed635c', '#db4551', '#c52840', '#aa0e27', '#8b0000'];
       var labels = [];
   
       // Add min & max
