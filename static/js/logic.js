@@ -16,30 +16,36 @@ id: "mapbox/streets-v11",
 accessToken: API_KEY
 }).addTo(myMap);
 
-function chooseColor(mag) {
+function chooseColor(magnitude) {
+    var mag = "0"
+    if (magnitude) {
+        mag = magnitude.toString().substring(0,1).toString()
+    } else {
+        mag = "11"
+    }
     switch (mag) {
-    case 0 < mag <= 1:
-      return '#0051a2';
-    case 1 < mag <= 2:
-      return '#585377';
-    case 2 < mag <= 3:
-      return '#715469';
-    case 3 < mag <= 4:
-      return '#875364';
-    case 4 < mag <= 5:
-      return '#9b5062';
-    case 5 < mag <= 6:
-    return '#af4c63';
-    case 6 < mag <= 7:
-    return '#c24666';
-    case 7 < mag <= 8:
-    return '#d63c6a';
-    case 8 < mag <= 9:
-    return '#ea2c70';
-    case 9 < mag <= 10:
-    return '#ff0077';
+    case mag == '0':
+      return "#3388ff";
+    case mag == '1':
+      return "#3388ff";
+    case mag == '2':
+      return "#3388ff";
+    case mag == '3':
+      return "#3388ff";
+    case mag == '4':
+      return "#3388ff";
+    case mag == '5':
+      return "gray";
+    case mag == '6':
+      return "darkgreen";
+    case mag == '7':
+      return "pink";
+    case mag == '8':
+      return "brown";
+    case mag == '9':
+      return "slateblue";
     default:
-      return "black";
+      return "white";
     }
 }
 
@@ -68,7 +74,7 @@ function createFeatures(earthquakeData) {
     legend.onAdd = function() {
       var div = L.DomUtil.create("div", "info legend");
       var limits = ["0-1","1-2","2-3","3-4","4-5","5-6","6-7","7-8","8-9","9-10"];
-      var colors = ['#0051a2', '#585377', '#715469', '#875364', '#9b5062', '#af4c63', '#c24666', '#d63c6a', '#ea2c70', '#ff0077'];
+      var colors = ["gold", "blue", "green", "yellow", "orange", "grey", "darkgreen", "pink", "brown", "slateblue"];
       var labels = [];
   
       // Add min & max
